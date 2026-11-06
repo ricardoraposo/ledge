@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=Ledge
+Comment=Sticky notes on the edge of your screen
+Exec=ledge all
+Icon=io.github.ricardoraposo.Ledge
+Terminal=false
+Categories=Utility;
+Keywords=notes;sticky;todo;daily;
+StartupNotify=false
+DBusActivatable=false
+Actions=new;daily;
+
+[Desktop Action new]
+Name=New Note
+Exec=ledge new
+
+[Desktop Action daily]
+Name=Today's Daily
+Exec=ledge daily

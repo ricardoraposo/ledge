@@ -1,0 +1,218 @@
+window.deck-window,
+window.card-window,
+window.toast-window,
+window.dialog-host {
+  background: none;
+  box-shadow: none;
+}
+
+.deck-window, .card, .peek, .tab {
+  color: #1F1D1A;
+}
+
+.stripe {
+  background-color: alpha(white, 0.42);
+  padding: 8px 2px;
+  box-shadow: 0 1px 4px alpha(black, 0.18);
+}
+.edge-right .stripe { border-radius: 7px 0 0 7px; }
+.edge-left .stripe { border-radius: 0 7px 7px 0; }
+
+.segment {
+  min-width: 5px;
+  border-radius: 3px;
+}
+.segment-empty { background-color: alpha(#1F1D1A, 0.25); }
+.spine-daily { background-color: #86CDA1; }
+
+.fan { padding: 0; }
+.deck-column { padding: 10px 0; }
+
+.tab {
+  min-width: 40px;
+  padding: 6px 0;
+  border: none;
+  background-image: none;
+  box-shadow: 0 1px 4px alpha(black, 0.22);
+  outline-offset: -3px;
+}
+.edge-right .tab { border-radius: 10px 0 0 10px; }
+.edge-left .tab { border-radius: 0 10px 10px 0; }
+.tab:hover { filter: brightness(1.03); }
+.tab:active { filter: brightness(0.96); }
+.tab.in-group { min-width: 50px; }
+.tab.floating { opacity: 0.7; }
+.tab .vlabel { font-size: 11.5pt; font-weight: 600; }
+.group-tab .vlabel, .group-header .vlabel { font-weight: 800; }
+.edge-right .group-tab { box-shadow: -3px -3px 0 alpha(white, 0.6), -6px -6px 0 alpha(white, 0.35), 0 1px 4px alpha(black, 0.22); margin-top: 6px; }
+.edge-left .group-tab { box-shadow: 3px -3px 0 alpha(white, 0.6), 6px -6px 0 alpha(white, 0.35), 0 1px 4px alpha(black, 0.22); margin-top: 6px; }
+.group-header { min-width: 46px; }
+.tab-count { font-size: 9pt; font-weight: 800; }
+.tab-badge { font-size: 8pt; opacity: 0.75; }
+
+.edge-right .tabs.folded .tab { transform: translateX(72px); opacity: 0; }
+.edge-left .tabs.folded .tab { transform: translateX(-72px); opacity: 0; }
+.tabs.open .tab { transform: none; opacity: 1; }
+
+.deck-buttons { margin-top: 2px; }
+.deck-round {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border-radius: 999px;
+  background-color: alpha(white, 0.88);
+  color: #1F1D1A;
+  box-shadow: 0 1px 4px alpha(black, 0.25);
+}
+.edge-right .deck-round { margin-right: 6px; }
+.edge-left .deck-round { margin-left: 6px; }
+
+.peek {
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 22px;
+  box-shadow: 0 6px 22px alpha(black, 0.28);
+}
+.peek-title { font-weight: 800; font-size: 12pt; }
+.peek-body { opacity: 0.85; }
+.peek-tags { font-size: 9pt; opacity: 0.7; }
+
+window.catcher-window { background-color: rgba(0, 0, 0, 0.004); box-shadow: none; }
+window.floating-window { background: none; box-shadow: none; }
+.card-slider.slide-right { padding: 16px 0 16px 18px; }
+.card-slider.slide-left { padding: 16px 18px 16px 0; }
+.card {
+  box-shadow: 0 8px 26px alpha(black, 0.30);
+  transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 170ms ease-out;
+}
+.card.anchored-right { border-radius: 14px 0 0 14px; }
+.card.anchored-left { border-radius: 0 14px 14px 0; }
+.card.floating { border-radius: 12px; box-shadow: none; }
+.slide-right.hidden-card .card { transform: translateX(470px); }
+.slide-left.hidden-card .card { transform: translateX(-470px); }
+
+.card-spine { min-width: 44px; padding: 12px 0; }
+.card.anchored-right .card-spine { border-radius: 0; }
+.card.anchored-left .card-spine { border-radius: 0; }
+.card.floating .card-spine { border-radius: 12px 0 0 12px; }
+.card-spine button { margin: 0 9px; }
+.spine-close {
+  min-width: 26px; min-height: 26px; padding: 0; border-radius: 999px;
+  background-color: alpha(white, 0.6); color: #1F1D1A;
+}
+.spine-float {
+  min-width: 26px; min-height: 26px; padding: 0; border-radius: 999px;
+  background-color: #1F1D1A; color: white;
+}
+.spine-title { font-weight: 700; font-size: 11pt; color: alpha(#1F1D1A, 0.8); }
+.perforation { border-left: 2px dashed alpha(#1F1D1A, 0.16); }
+.resize-grip { margin: 4px; border-right: 2px solid alpha(#1F1D1A, 0.3); border-bottom: 2px solid alpha(#1F1D1A, 0.3); border-radius: 0 0 4px 0; }
+
+.note-editor { padding: 14px 18px 12px 18px; color: #1F1D1A; }
+.note-editor.in-pane { padding: 10px 28px 16px 28px; }
+.note-title { font-weight: 800; background: none; color: #1F1D1A; caret-color: #1F1D1A; }
+.note-edited { font-size: 9.5pt; }
+.note-tool { min-width: 28px; min-height: 28px; padding: 0; }
+.note-tool:checked { background-color: alpha(#1F1D1A, 0.1); }
+.note-scroll, .note-scroll > viewport { background: none; }
+.note-text, .note-text > text { background: none; color: #1F1D1A; caret-color: #1F1D1A; }
+.note-text > text > selection, .note-title > selection { background-color: alpha(#1F1D1A, 0.16); color: #1F1D1A; }
+.note-find { padding: 6px 0; }
+.note-footer { border-top: 1px solid alpha(#1F1D1A, 0.08); padding-top: 10px; }
+.note-hash { font-weight: 700; }
+.note-tags { background: none; color: #1F1D1A; }
+.tag-chip { padding: 0 6px; min-height: 22px; font-weight: 700; }
+.note-colors { margin-top: 2px; }
+.swatch {
+  min-width: 20px; min-height: 20px; padding: 0; border-radius: 999px;
+  border: 1px solid alpha(#1F1D1A, 0.15);
+  background-image: none;
+}
+.swatch:checked { outline: 2px solid #1F1D1A; outline-offset: 2px; }
+
+.toast {
+  background-color: #2A2926;
+  color: white;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 10px;
+  box-shadow: 0 6px 20px alpha(black, 0.35);
+}
+.toast-action { color: #F7E3A1; font-weight: 800; background: none; padding: 2px 6px; }
+
+.all-notes .list-toolbar { padding: 8px; }
+.note-row { padding: 8px 10px 8px 6px; }
+.row-bar { border-radius: 3px; }
+.row-title { font-weight: 700; }
+.row-date, .row-tags { font-size: 9pt; }
+.row-tags { font-weight: 700; color: @accent_color; }
+.sidebar-heading { font-size: 9pt; font-weight: 700; margin: 12px 8px 2px 8px; }
+.group-dot { border-radius: 999px; min-width: 10px; min-height: 10px; }
+.detail-pane .detail-actions { padding: 6px 18px; border-bottom: 1px solid alpha(#1F1D1A, 0.08); }
+.detail-pane .detail-button { color: #1F1D1A; }
+.detail-pane.paper-butter, .detail-pane.paper-coral, .detail-pane.paper-mint,
+.detail-pane.paper-sky, .detail-pane.paper-lilac { color: #1F1D1A; }
+.template-editor { background: none; }
+.paper-butter { background-color: #F7E3A1; }
+.spine-butter { background-color: #EBC550; }
+.paper-butter .card-spine { background-color: #EBC550; }
+.swatch-butter { background-color: #EBC550; }
+.paper-butter .note-edited, .paper-butter .note-hash, .paper-butter .note-tags { color: #57503D; }
+.paper-butter .tag-chip { color: #7A5A00; }
+.paper-butter .note-tool { color: #57503D; }
+.paper-coral { background-color: #F6C1B1; }
+.spine-coral { background-color: #EE9279; }
+.paper-coral .card-spine { background-color: #EE9279; }
+.swatch-coral { background-color: #EE9279; }
+.paper-coral .note-edited, .paper-coral .note-hash, .paper-coral .note-tags { color: #574841; }
+.paper-coral .tag-chip { color: #8F2F15; }
+.paper-coral .note-tool { color: #574841; }
+.paper-mint { background-color: #BFE5CC; }
+.spine-mint { background-color: #86CDA1; }
+.paper-mint .card-spine { background-color: #86CDA1; }
+.swatch-mint { background-color: #86CDA1; }
+.paper-mint .note-edited, .paper-mint .note-hash, .paper-mint .note-tags { color: #495148; }
+.paper-mint .tag-chip { color: #1F6B45; }
+.paper-mint .note-tool { color: #495148; }
+.paper-sky { background-color: #BCD9F2; }
+.spine-sky { background-color: #86BCEB; }
+.paper-sky .card-spine { background-color: #86BCEB; }
+.swatch-sky { background-color: #86BCEB; }
+.paper-sky .note-edited, .paper-sky .note-hash, .paper-sky .note-tags { color: #484E52; }
+.paper-sky .tag-chip { color: #1F5C99; }
+.paper-sky .note-tool { color: #484E52; }
+.paper-lilac { background-color: #D8CDF2; }
+.spine-lilac { background-color: #B09EEA; }
+.paper-lilac .card-spine { background-color: #B09EEA; }
+.swatch-lilac { background-color: #B09EEA; }
+.paper-lilac .note-edited, .paper-lilac .note-hash, .paper-lilac .note-tags { color: #4F4B52; }
+.paper-lilac .tag-chip { color: #5B3FA8; }
+.paper-lilac .note-tool { color: #4F4B52; }
+.group-color-0 { background-color: #E5534B; color: #fff; }
+.group-color-1 { background-color: #F08A3C; color: #fff; }
+.group-color-2 { background-color: #E8B931; color: #fff; }
+.group-color-3 { background-color: #9BBF3A; color: #fff; }
+.group-color-4 { background-color: #3FAE6A; color: #fff; }
+.group-color-5 { background-color: #2BA59C; color: #fff; }
+.group-color-6 { background-color: #3A9BD9; color: #fff; }
+.group-color-7 { background-color: #4F6FE0; color: #fff; }
+.group-color-8 { background-color: #8A5CD6; color: #fff; }
+.group-color-9 { background-color: #C653B5; color: #fff; }
+.group-color-10 { background-color: #E05C8A; color: #fff; }
+.group-color-11 { background-color: #8C8C8C; color: #fff; }
+.tabs .stagger-0 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 0ms, min-width 120ms ease-out, opacity 180ms ease-out 0ms; }
+.tabs .stagger-1 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 14ms, min-width 120ms ease-out, opacity 180ms ease-out 14ms; }
+.tabs .stagger-2 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 28ms, min-width 120ms ease-out, opacity 180ms ease-out 28ms; }
+.tabs .stagger-3 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 42ms, min-width 120ms ease-out, opacity 180ms ease-out 42ms; }
+.tabs .stagger-4 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 56ms, min-width 120ms ease-out, opacity 180ms ease-out 56ms; }
+.tabs .stagger-5 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 70ms, min-width 120ms ease-out, opacity 180ms ease-out 70ms; }
+.tabs .stagger-6 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 84ms, min-width 120ms ease-out, opacity 180ms ease-out 84ms; }
+.tabs .stagger-7 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 98ms, min-width 120ms ease-out, opacity 180ms ease-out 98ms; }
+.tabs .stagger-8 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 112ms, min-width 120ms ease-out, opacity 180ms ease-out 112ms; }
+.tabs .stagger-9 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 126ms, min-width 120ms ease-out, opacity 180ms ease-out 126ms; }
+.tabs .stagger-10 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 140ms, min-width 120ms ease-out, opacity 180ms ease-out 140ms; }
+.tabs .stagger-11 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 154ms, min-width 120ms ease-out, opacity 180ms ease-out 154ms; }
+.tabs .stagger-12 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 168ms, min-width 120ms ease-out, opacity 180ms ease-out 168ms; }
+.tabs .stagger-13 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 182ms, min-width 120ms ease-out, opacity 180ms ease-out 182ms; }
+.tabs .stagger-14 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 196ms, min-width 120ms ease-out, opacity 180ms ease-out 196ms; }
+.tabs .stagger-15 { transition: transform 230ms cubic-bezier(0.2, 0.9, 0.3, 1.15) 210ms, min-width 120ms ease-out, opacity 180ms ease-out 210ms; }
