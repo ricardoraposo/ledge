@@ -124,7 +124,7 @@ impl NoteTextView {
             .property("bottom-margin", 12)
             .property("left-margin", 2)
             .property("right-margin", 2)
-            .property("pixels-below-lines", 2)
+            .property("pixels-above-lines", 2)
             .build();
         view.add_css_class("note-text");
         *view.imp().box_color.borrow_mut() = Some(rgba("#1F5C99", 1.0));
@@ -154,13 +154,9 @@ impl NoteTextView {
             let Some(start) = buffer.iter_at_line(image.line) else {
                 continue;
             };
-            let mut line_end = start;
-            if !line_end.ends_line() {
-                line_end.forward_to_line_end();
-            }
-            let text_rect = self.iter_location(&line_end);
             let x = self.iter_location(&start).x() as f32;
-            let y = (text_rect.y() + text_rect.height()) as f32 + IMAGE_GAP as f32 / 2.0;
+            let (line_top, _) = self.line_yrange(&start);
+            let y = line_top as f32 + IMAGE_GAP as f32 / 2.0;
             let rect = graphene::Rect::new(x, y, image.width as f32, image.height as f32);
             snapshot.push_rounded_clip(&gsk::RoundedRect::from_rect(rect, 8.0));
             snapshot.append_scaled_texture(&image.texture, gsk::ScalingFilter::Trilinear, &rect);
@@ -1035,7 +1031,7 @@ impl NoteEditor {
             let tag_name = format!("image-space-{}", height + IMAGE_GAP);
             if table.lookup(&tag_name).is_none() {
                 let tag = gtk::TextTag::new(Some(&tag_name));
-                tag.set_pixels_below_lines(height + IMAGE_GAP);
+                tag.set_pixels_above_lines(height + IMAGE_GAP);
                 table.add(&tag);
                 self.image_space_tags.borrow_mut().insert(tag_name.clone());
             }
